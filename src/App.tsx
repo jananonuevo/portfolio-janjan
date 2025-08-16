@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
