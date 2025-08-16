@@ -5,7 +5,7 @@ function Hero() {
         <div className='w-full min-h-screen flex justify-center items-center md:mt-20'>
             <div className="grid lg:grid-cols-2 gap-3">
                 <div className="mt-10 lg:mt-0 mb-10 ml-20">
-                    <img className="rounded-full w-96 h-96 xl:w-120 xl:h-120" src="/src/assets/img/janjan.png" />
+                    <img className="rounded-full w-96 h-96 xl:w-120 xl:h-120" src="/assets/img/janjan.png" />
                 </div>
                 
                 <div className="flex flex-col items-center justify-center text-center">
