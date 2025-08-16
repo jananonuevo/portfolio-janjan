@@ -1,18 +1,12 @@
-import { motion } from "framer-motion";
-
-
 function Hero() {
     
     return (
         <>
         <div className='w-full min-h-screen flex justify-center items-center md:mt-20'>
             <div className="grid lg:grid-cols-2 gap-3">
-                <motion.div     
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition = {{ duration: 1}} className="mt-10 lg:mt-0 mb-10 ml-20">
+                <div className="mt-10 lg:mt-0 mb-10 ml-20">
                     <img className="rounded-full w-96 h-96 xl:w-120 xl:h-120" src="/src/assets/img/janjan.png" />
-                </motion.div>
+                </div>
                 
                 <div className="flex flex-col items-center justify-center text-center">
                     <p className="text-3xl lg:text-2xl xl:text-5xl text-[#292929]">Hallo, hallo!</p>
