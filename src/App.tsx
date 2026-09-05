@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.tsx';
-import Footer from './components/Footer.tsx';
-import Landing from './components/Landing.tsx';
+import Navbar from './features/base/components/layout/Navbar.tsx';
+import Footer from './features/base/components/layout/Footer.tsx';
+import Landing from './features/base/pages/Landing/Landing.tsx';
 
 function App() {
   return (
