@@ -32,13 +32,21 @@ export const projects: Project[] = [
     },
     {
         id: '2',
+        title: 'Real Estate WebApp',
+        description: 'A WebApp I made for a coworker that I have worked with when I was still a real estate agent. It aims to ease all the business transactions and analyzations involved in being a real estate agent.',
+        image: asset("assets/img/kennethtanayala.png"),
+        githubLink: 'https://github.com/jananonuevo/realestate-webapp.git',
+        liveDemo: 'https://kenneth-tan-ayala-website.vercel.app/',
+    },
+    {
+        id: '3',
         title: 'Using Item Personality-Based Profiling in Music Recommender Systems',
         description: 'A music recommender system that uses item personality-based profiling to recommend songs to users based on their personality traits',
         image: asset("assets/img/musicrecommendersystem.png"),
         githubLink: 'https://github.com/jananonuevo/thesismusic.git'
     },
     {
-        id: '3',
+        id: '4',
         title: 'Logos Engineering and Design Website',
         description: 'A simple static website made for the company Logos Engineering and Design to promote their services.',
         image: asset("assets/img/logosengineeringanddesign.jpg"),
