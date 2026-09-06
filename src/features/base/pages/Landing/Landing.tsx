@@ -1,9 +1,17 @@
+import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo, projects, skills } from '../../constants/portfolioData';
 import { Button } from '../../components/ui/Button';
-import { Section } from '../../components/ui/Section';
+import { ResumeModal } from '../../../resume/components/ResumeModal';
 
-function Landing() {
+interface LandingProps {
+    children?: ReactNode;
+}
+
+function Landing({ children }: LandingProps) {
+    const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+
     return (
         <>
             {/* HERO SECTION */}
@@ -25,18 +33,21 @@ function Landing() {
                         className="flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-5"
                     >
                         <p className="text-3xl lg:text-2xl xl:text-5xl text-primary-text font-medium">{personalInfo.greeting}</p>
-                        <h1 className="lg:text-lg xl:text-3xl font-bold mt-2 xl:mt-5 text-primary-text">I'm {personalInfo.name}. {personalInfo.role}.</h1>
-                        <a href={personalInfo.cvLink}>
-                            <Button variant="primary" className="mt-8 text-lg px-8 py-3">
-                                Download CV
-                            </Button>
-                        </a>
+                        <h1 className="lg:text-lg xl:text-3xl mt-2 xl:mt-5 text-primary-text">I'm {personalInfo.name}. {personalInfo.role}.</h1>
+                        <Button 
+                            variant="primary" 
+                            className="mt-8 text-lg px-8 py-3"
+                            onClick={() => setIsResumeModalOpen(true)}
+                        >
+                            View CV
+                        </Button>
                     </motion.div>
                 </div>
             </section>
 
             {/* ABOUT ME SECTION */}
-            <Section id="about" title="About Me">
+            <section id="about" className="scroll-mt-32 mt-32 md:mt-50 mx-10 max-w-7xl xl:mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold text-center text-primary-text mb-16 md:mb-20">About Me</h2>
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -46,10 +57,11 @@ function Landing() {
                 >
                     I'm Jan Nielsen Añonuevo, a Computer Science graduate from Mapua University with five years of programming experience. My passion for software development began in Junior High at Don Bosco Technical Institute of Makati, where I specialized in Computer Technology. I am proficient in C/C++, PHP, Java, HTML, CSS, JavaScript, SQL, and Python, and familiar with frameworks like Bootstrap, Tailwind CSS, and ReactJS. My strong foundation in programming allows me to quickly adapt to new languages and technologies.
                 </motion.div>
-            </Section>
+            </section>
 
             {/* TECH STACK SECTION */}
-            <Section id="techstack" title="Tech Stack">
+            <section id="techstack" className="scroll-mt-32 mt-32 md:mt-50 mx-10 max-w-7xl xl:mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold text-center text-primary-text mb-16 md:mb-20">Tech Stack</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-12 lg:gap-16">
                     {skills.map((skill, index) => (
                         <motion.div 
@@ -69,11 +81,12 @@ function Landing() {
                         </motion.div>
                     ))}
                 </div>
-            </Section>
+            </section>
 
             {/* PROJECTS SECTION */}
-            <Section id="projects" title="Projects">
-                <div className="flex overflow-x-auto overflow-y-hidden gap-10 snap-x snap-mandatory pb-10 scrollbar-hide">
+            <section id="projects" className="scroll-mt-32 mt-32 md:mt-50 mx-10 max-w-7xl xl:mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary-text mb-16 md:mb-20">Projects, Contributions, Experiences, Whatnots</h2>
+                <div className="flex overflow-x-auto overflow-y-hidden gap-10 snap-x snap-mandatory pb-10">
                     {projects.map((project, index) => (
                         <motion.div 
                             key={project.id}
@@ -89,15 +102,32 @@ function Landing() {
                             ></div>
                             <h3 className="mt-2 text-3xl font-bold text-primary-text text-center xl:text-left">{project.title}</h3>
                             <p className="mt-4 text-xl text-primary-text text-center xl:text-left opacity-90">{project.description}</p>
-                            {project.githubLink && (
-                                <a href={project.githubLink} target="_blank" rel="noreferrer" className="mt-6">
-                                    <Button variant="primary">Github</Button>
-                                </a>
-                            )}
+                            
+                            <div className="flex flex-wrap gap-4 mt-6 justify-center xl:justify-start">
+                                {project.githubLink && (
+                                    <a href={project.githubLink} target="_blank" rel="noreferrer">
+                                        <Button variant="primary">Github</Button>
+                                    </a>
+                                )}
+                                {project.liveDemo && (
+                                    <a href={project.liveDemo} target="_blank" rel="noreferrer">
+                                        <Button variant="primary">Live Demo</Button>
+                                    </a>
+                                )}
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-            </Section>
+            </section>
+
+            {/* INJECTED FEATURES */}
+            {children}
+
+            <ResumeModal 
+                isOpen={isResumeModalOpen} 
+                onClose={() => setIsResumeModalOpen(false)} 
+                cvLink={personalInfo.cvLink} 
+            />
         </>
     )
 }
