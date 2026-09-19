@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
     greeting: "Hallo, hallo!",
     name: "Jan Añonuevo",
     role: "Software Developer",
-    cvLink: "https://docs.google.com/document/d/1Xnh---5w2_ABDdBYPQga7C-oZ6hf5gF8s1DKkzsAMq8/edit?usp=sharing", // Placeholder Google Docs link
+    cvLink: "https://docs.google.com/document/d/1JpUr5cKSneYK6JSUYBRJ7M5kkeXD0JoGRXR0mn0BF38/edit?usp=sharing", // Placeholder Google Docs link
     profileImage: asset("assets/img/janjan.png")
 };
 
