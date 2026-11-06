@@ -23,7 +23,12 @@ function Landing({ children }: LandingProps) {
                         transition={{ duration: 0.8 }}
                         className="mt-10 lg:mt-0 mb-10 lg:ml-20 flex justify-center"
                     >
-                        <img className="rounded-full w-70 h-70 sm:w-96 sm:h-96 xl:w-120 xl:h-120 object-cover" src={personalInfo.profileImage} alt={personalInfo.name} />
+                        <img 
+                            className="rounded-full w-70 h-70 sm:w-96 sm:h-96 xl:w-120 xl:h-120 object-cover" 
+                            src={personalInfo.profileImage} 
+                            alt={personalInfo.name} 
+                            fetchPriority="high"
+                        />
                     </motion.div>
                     
                     <motion.div 
@@ -34,13 +39,29 @@ function Landing({ children }: LandingProps) {
                     >
                         <p className="text-3xl lg:text-2xl xl:text-5xl text-primary-text font-medium">{personalInfo.greeting}</p>
                         <h1 className="lg:text-lg xl:text-3xl mt-2 xl:mt-5 text-primary-text">I'm {personalInfo.name}. {personalInfo.role}.</h1>
-                        <Button 
-                            variant="primary" 
-                            className="mt-8 text-lg px-8 py-3"
-                            onClick={() => setIsResumeModalOpen(true)}
-                        >
-                            View CV
-                        </Button>
+                        <div className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
+                            <Button 
+                                variant="primary" 
+                                className="text-lg px-8 py-3"
+                                onClick={() => setIsResumeModalOpen(true)}
+                            >
+                                View CV
+                            </Button>
+                            {personalInfo.github && (
+                                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" className="text-lg px-6 py-3">
+                                        GitHub
+                                    </Button>
+                                </a>
+                            )}
+                            {personalInfo.linkedin && (
+                                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <Button variant="outline" className="text-lg px-6 py-3">
+                                        LinkedIn
+                                    </Button>
+                                </a>
+                            )}
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -76,6 +97,8 @@ function Landing({ children }: LandingProps) {
                                 className="rounded-full w-24 h-24 md:w-32 md:h-32 object-cover shadow-md group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-2" 
                                 src={skill.image} 
                                 alt={skill.name} 
+                                loading="lazy"
+                                decoding="async"
                             />
                             <h3 className="mt-6 text-2xl font-medium text-center text-primary-text">{skill.name}</h3>
                         </motion.div>

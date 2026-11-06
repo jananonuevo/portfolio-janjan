@@ -4,4 +4,6 @@ export interface PersonalInfo {
     role: string;
     cvLink: string;
     profileImage: string;
+    github?: string;
+    linkedin?: string;
 }

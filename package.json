@@ -1,7 +1,9 @@
 {
-  "name": "tailwindcss4",
+  "name": "jan-anonuevo-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Personal portfolio website of Jan Añonuevo, Software Developer",
+  "author": "Jan Añonuevo",
   "type": "module",
   "scripts": {
     "dev": "vite",

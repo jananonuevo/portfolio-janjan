@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './features/base/components/layout/Navbar.tsx';
-import Footer from './features/base/components/layout/Footer.tsx';
-import Landing from './features/base/pages/Landing/Landing.tsx';
-import { LinkedInSection } from './features/linkedin/components/LinkedInSection.tsx';
+import Navbar from './features/base/components/layout/Navbar';
+import Footer from './features/base/components/layout/Footer';
+import Landing from './features/base/pages/Landing/Landing';
+import { LinkedInSection } from './features/linkedin/components/LinkedInSection';
 
 function App() {
   return (

@@ -7,7 +7,9 @@ export const personalInfo: PersonalInfo = {
     name: "Jan Añonuevo",
     role: "Software Developer",
     cvLink: "https://docs.google.com/document/d/1JpUr5cKSneYK6JSUYBRJ7M5kkeXD0JoGRXR0mn0BF38/edit?usp=sharing", // Placeholder Google Docs link
-    profileImage: asset("assets/img/janjan.png")
+    profileImage: asset("assets/img/janjan.png"),
+    github: "https://github.com/jananonuevo",
+    linkedin: "https://www.linkedin.com/in/jan-anonuevo"
 };
 
 export const skills: Skill[] = [
